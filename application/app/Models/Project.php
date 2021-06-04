@@ -74,6 +74,14 @@ class Project extends Model {
         return $this->morphMany('App\Models\Note', 'noteresource');
     }
 
+    public function goals() {
+        return $this->morphMany('App\Models\Goal', 'goalresource');
+    }
+
+    public function reminders() {
+        return $this->morphMany('App\Models\Reminder', 'reminderresource');
+    }
+
     /**
      * relatioship business rules:
      *         - the Category can have many Projects

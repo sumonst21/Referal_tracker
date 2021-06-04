@@ -47,6 +47,12 @@ class DestroyRepository {
         //delete notes
         $project->notes()->delete();
 
+        //delete goals
+        $project->goals()->delete();
+
+        //delete reminders
+        $project->reminders()->delete();
+
         //delete timers
         $project->timers()->delete();
 

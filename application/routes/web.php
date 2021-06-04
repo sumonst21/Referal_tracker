@@ -37,7 +37,7 @@ Route::group(['prefix' => 'clients'], function () {
 
     //dynamic load
     Route::any("/{client}/{section}", "Clients@showDynamic")
-        ->where(['client' => '[0-9]+', 'section' => 'contacts|projects|files|tickets|invoices|expenses|payments|timesheets|estimates|notes']);
+        ->where(['client' => '[0-9]+', 'section' => 'contacts|projects|files|tickets|invoices|expenses|payments|timesheets|estimates|notes|goals|reminders']);
 });
 Route::any("/client/{x}/profile", "Clients@profile")->where('x', '[0-9]+');
 Route::resource('clients', 'Clients');
@@ -333,6 +333,55 @@ Route::group(['prefix' => 'notes'], function () {
     Route::post("/delete", "Notes@destroy")->middleware(['demoModeCheck']);
 });
 Route::resource('notes', 'Notes');
+
+//GOALS
+Route::group(['prefix' => 'goals'], function () {
+    Route::any("/search", "Goals@index");
+    Route::post("/delete", "Goals@destroy")->middleware(['demoModeCheck']);
+});
+Route::resource('goals', 'Goals');
+
+//Reminders
+Route::group(['prefix' => 'reminders'], function () {
+    Route::any("/search", "Reminders@index");
+    Route::post("/delete", "Reminders@destroy")->middleware(['demoModeCheck']);
+});
+Route::resource('reminders', 'Reminders');
+
+//client_tasks
+Route::group(['prefix' => 'client_tasks'], function () {
+    Route::any("/search", "client_Tasks@index");
+    Route::any("/timer/{id}/start", "client_Tasks@timerStart")->where('id', '[0-9]+');
+    Route::any("/timer/{id}/stop", "client_Tasks@timerStop")->where('id', '[0-9]+');
+    Route::any("/timer/{id}/stopall", "client_Tasks@timerStopAll")->where('id', '[0-9]+');
+    Route::post("/delete", "client_Tasks@destroy")->middleware(['demoModeCheck']);
+    Route::post("/{task}/toggle-status", "client_Tasks@toggleStatus")->where('task', '[0-9]+');
+    Route::post("/{task}/update-description", "client_Tasks@updateDescription")->where('task', '[0-9]+');
+    Route::post("/{task}/attach-files", "client_Tasks@attachFiles")->where('task', '[0-9]+');
+    Route::delete("/delete-attachment/{uniqueid}", "client_Tasks@deleteAttachment")->middleware(['demoModeCheck']);
+    Route::get("/download-attachment/{uniqueid}", "client_Tasks@downloadAttachment");
+    Route::post("/{task}/post-comment", "client_Tasks@storeComment")->where('task', '[0-9]+');
+    Route::delete("/delete-comment/{commentid}", "client_Tasks@deleteComment")->where('commentid', '[0-9]+');
+    Route::post("/{task}/update-title", "client_Tasks@updateTitle")->where('task', '[0-9]+');
+    Route::post("/{task}/add-checklist", "client_Tasks@storeChecklist")->where('task', '[0-9]+');
+    Route::post("/update-checklist/{checklistid}", "client_Tasks@updateChecklist")->where('checklistid', '[0-9]+');
+    Route::delete("/delete-checklist/{checklistid}", "client_Tasks@deleteChecklist")->where('checklistid', '[0-9]+');
+    Route::post("/toggle-checklist-status/{checklistid}", "client_Tasks@toggleChecklistStatus")->where('checklistid', '[0-9]+');
+    Route::post("/{task}/update-start-date", "client_Tasks@updateStartDate")->where('task', '[0-9]+');
+    Route::post("/{task}/update-due-date", "client_Tasks@updateDueDate")->where('task', '[0-9]+');
+    Route::post("/{task}/update-status", "client_Tasks@updateStatus")->where('task', '[0-9]+');
+    Route::post("/{task}/update-priority", "client_Tasks@updatePriority")->where('task', '[0-9]+');
+    Route::post("/{task}/update-visibility", "client_Tasks@updateVisibility")->where('task', '[0-9]+');
+    Route::post("/{task}/update-milestone", "client_Tasks@updateMilestone")->where('task', '[0-9]+');
+    Route::post("/{task}/update-assigned", "client_Tasks@updateAssigned")->where('task', '[0-9]+');
+    Route::post("/update-position", "client_Tasks@updatePosition");
+    Route::any("/v/{task}/{slug}", "client_Tasks@index")->where('task', '[0-9]+');
+    Route::post("/{task}/update-custom", "client_Tasks@updateCustomFields")->where('task', '[0-9]+');
+    Route::put("/{task}/archive", "client_tasks@archive")->where('task', '[0-9]+');
+    Route::put("/{task}/activate", "client_tasks@activate")->where('task', '[0-9]+');
+
+});
+Route::resource('client_tasks', 'client_Tasks');
 
 //COMMENTS
 Route::group(['prefix' => 'comments'], function () {

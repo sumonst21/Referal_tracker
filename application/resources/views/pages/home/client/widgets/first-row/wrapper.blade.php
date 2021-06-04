@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row client-box">
     <!--PROJECTS PENDING-->
     @include('pages.home.client.widgets.first-row.projects-pending')
 

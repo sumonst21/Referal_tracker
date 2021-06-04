@@ -1,13 +1,14 @@
 <!-- Invoice - Ovedue-->
-<div class="col-lg-3 col-md-6 click-url cursor-pointer" data-url="{{ url('invoices/search?ref=list&filter_bill_status[]=overdue') }}">
+<!-- <div class="col-lg-3 col-md-6 click-url cursor-pointer" data-url="{{ url('invoices/search?ref=list&filter_bill_status[]=overdue') }}">
     <div class="card">
-        <div class="card-body p-l-15 p-r-15">
+       
+             <div class="card-body p-l-15 p-r-15">
             <div class="d-flex p-10 no-block">
-                <span class="align-slef-center">
+                <span class="align-slef-center card-4">
                     <h2 class="m-b-0">{{ runtimeMoneyFormat($payload['invoices']['overdue']) }}</h2>
-                    <h6 class="text-muted m-b-0">{{ cleanLang(__('lang.invoices')) }} - {{ cleanLang(__('lang.overdue')) }}</h6>
+                    <h6 class="text-info m-b-0">{{ cleanLang(__('lang.invoices')) }} - {{ cleanLang(__('lang.overdue')) }}</h6>
                 </span>
-                <div class="align-self-center display-6 ml-auto"><i class="text-danger icon-Coins-2"></i></div>
+                <div class="align-self-center display-6 ml-auto bg-info"><i class="mdi mdi-cards text-white icon-lg"></i></div>
             </div>
         </div>
         <div class="progress">
@@ -15,4 +16,4 @@
                 aria-valuemax="100"></div>
         </div>
     </div>
-</div>
+</div> -->

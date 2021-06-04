@@ -85,11 +85,11 @@
                         </span>
                     </a>
                 </li>
-                @endif
+                @endif 
                 <!--leads-->
 
                 <!--billing-->
-                @if(auth()->user()->role->role_invoices >= 1 || auth()->user()->role->role_estimates >= 1 || auth()->user()->role->role_items >= 1 ||
+               <!--  @if(auth()->user()->role->role_invoices >= 1 || auth()->user()->role->role_estimates >= 1 || auth()->user()->role->role_items >= 1 ||
                 auth()->user()->role->role_expenses >= 1)
                 <li class="sidenav-menu-item {{ $page['mainmenu_sales'] ?? '' }}">
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0);" aria-expanded="false">
@@ -109,8 +109,8 @@
                             <a href="/payments"
                                 class=" {{ $page['submenu_payments'] ?? '' }}">{{ cleanLang(__('lang.payments')) }}</a>
                         </li>
-                        @endif
-                        @if(auth()->user()->role->role_estimates >= 1)
+                        @endif -->
+                        <!-- @if(auth()->user()->role->role_estimates >= 1)
                         <li class="sidenav-submenu {{ $page['submenu_estimates'] ?? '' }}" id="submenu_estimates">
                             <a href="/estimates"
                                 class=" {{ $page['submenu_estimates'] ?? '' }}">{{ cleanLang(__('lang.estimates')) }}</a>
@@ -127,17 +127,17 @@
                             <a href="/expenses"
                                 class=" {{ $page['submenu_expenses'] ?? '' }}">{{ cleanLang(__('lang.expenses')) }}</a>
                         </li>
-                        @endif
-                    </ul>
+                        @endif -->
+                <!--     </ul>
                 </li>
-                @endif
+                @endif -->
                 <!--billing-->
 
 
                 
 
                 <!--subscriptions-->
-                <li class="sidenav-menu-item {{ $page['mainmenu_subscription'] ?? '' }} menu-tooltip menu-with-tooltip"
+               <!--  <li class="sidenav-menu-item {{ $page['mainmenu_subscription'] ?? '' }} menu-tooltip menu-with-tooltip"
                     title="{{ cleanLang(__('lang.subscriptions')) }}">
                     <a class="waves-effect waves-dark p-r-20" href="/subscriptions" aria-expanded="false"
                         target="_self">
@@ -145,7 +145,7 @@
                         <span class="hide-menu">{{ cleanLang(__('lang.subscriptions')) }}
                         </span>
                     </a>
-                </li>
+                </li> -->
 
 
                 <!--tickets-->
@@ -163,7 +163,7 @@
 
 
                 <!--knowledgebase-->
-                @if(auth()->user()->role->role_knowledgebase >= 1)
+              <!--   @if(auth()->user()->role->role_knowledgebase >= 1)
                 <li class="sidenav-menu-item {{ $page['mainmenu_kb'] ?? '' }} menu-tooltip menu-with-tooltip"
                     title="{{ cleanLang(__('lang.knowledgebase')) }}">
                     <a class="waves-effect waves-dark p-r-20" href="/knowledgebase" aria-expanded="false"
@@ -173,12 +173,12 @@
                         </span>
                     </a>
                 </li>
-                @endif
+                @endif -->
                 <!--knowledgebase-->
 
 
                 <!--team-->
-                @if(auth()->user()->is_admin)
+               <!--  @if(auth()->user()->is_admin)
                 <li class="sidenav-menu-item {{ $page['mainmenu_settings'] ?? '' }}">
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0);" aria-expanded="false">
                         <i class="ti-panel"></i>
@@ -194,9 +194,9 @@
                             id="submenu_timesheets">
                             <a href="/timesheets"
                                 class="{{ $page['submenu_timesheets'] ?? '' }}">{{ cleanLang(__('lang.time_sheets')) }}</a>
-                        </li>
+                        </li> -->
                         <!--[UPCOMING]-->
-                        <li class="sidenav-submenu mainmenu_reports {{ $page['submenu_reports'] ?? '' }} hidden"
+                        <!-- <li class="sidenav-submenu mainmenu_reports {{ $page['submenu_reports'] ?? '' }} hidden"
                             id="submenu_reports">
                             <a href="/reports"
                                 class="{{ $page['submenu_reports'] ?? '' }}">{{ cleanLang(__('lang.reports')) }}</a>
@@ -214,7 +214,7 @@
                     </a>
                 </li>
                 @endif
-                @endif
+                @endif -->
                 <!--team-->
 
 

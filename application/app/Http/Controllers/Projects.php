@@ -496,6 +496,8 @@ class Projects extends Controller {
         case 'payments':
         case 'timesheets':
         case 'notes':
+        case 'reminders':
+        case 'goals':
         case 'tickets':
         case 'milestones':
         case 'tasks':

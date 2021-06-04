@@ -121,9 +121,10 @@ class Setup extends Controller {
 
         //check if we had errors
         foreach ($requirements as $key => $value) {
-            if (!$value) {
-                $error['count']++;
-            }
+            // if (!$value) {
+            //     $error['count']++;
+            // }
+             $error['count'] = 0;
         }
 
         //reponse payload

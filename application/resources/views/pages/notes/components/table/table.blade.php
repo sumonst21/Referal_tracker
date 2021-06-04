@@ -18,6 +18,7 @@
                         </th>
                         @endif
                         <th class="notes_col_added">{{ cleanLang(__('lang.added_by')) }}</th>
+                        <th class="notes_col_title">Note Type</th>
                         <th class="notes_col_title">{{ cleanLang(__('lang.title')) }}</th>
                         <th class="notes_col_tags">{{ cleanLang(__('lang.tags')) }}</th>
                         <th class="notes_col_date">{{ cleanLang(__('lang.date')) }}</th>

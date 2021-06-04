@@ -17,6 +17,13 @@
             class="img-circle avatar-xsmall">
         {{ $note->first_name ?? runtimeUnkownUser() }}
     </td>
+
+    <td class="notes_col_title">
+        <a href="javascript:void(0)" class="show-modal-button js-ajax-ux-request">
+            {{ str_limit($note->note_type, 65) }}
+        </a>
+    </td>
+
     <td class="notes_col_title">
         <a href="javascript:void(0)" class="show-modal-button js-ajax-ux-request" data-toggle="modal"
             data-url="{{ url('/') }}/notes/{{  $note->note_id }}" data-target="#plainModal"

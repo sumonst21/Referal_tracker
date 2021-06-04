@@ -109,6 +109,7 @@ class NoteRepository {
 
         //data
         $note->note_creatorid = auth()->id();
+        $note->note_type = request('note_type');
         $note->note_title = request('note_title');
         $note->note_description = request('note_description');
         $note->noteresource_type = request('noteresource_type');
@@ -137,6 +138,7 @@ class NoteRepository {
         }
 
         //general
+        $note->note_type = request('note_type');
         $note->note_title = request('note_title');
         $note->note_description = request('note_description');
 

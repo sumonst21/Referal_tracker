@@ -157,6 +157,10 @@ class Notes extends Controller {
 
         //validate
         $validator = Validator::make(request()->all(), [
+            'note_type' => [
+                'required',
+                new NoTags,
+            ],
             'note_title' => [
                 'required',
                 new NoTags,
@@ -281,6 +285,10 @@ class Notes extends Controller {
 
         //validate
         $validator = Validator::make(request()->all(), [
+            'note_type' => [
+                'required',
+                new NoTags,
+            ],
             'note_title' => [
                 'required',
                 new NoTags,

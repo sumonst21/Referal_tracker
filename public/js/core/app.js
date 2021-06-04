@@ -1832,6 +1832,24 @@ function NXNotesCreate() {
 }
 
 
+function NXGoalsCreate() {
+
+    nxTinyMCEBasic();
+
+    $("#commonModalForm").validate().destroy();
+    $("#commonModalForm").validate({
+        rules: {
+            goal_title: "required",
+            goal_description: "required"
+        },
+        submitHandler: function (form) {
+
+            //ajax form, so initiate ajax request here
+            nxAjaxUxRequest($("#commonModalSubmitButton"));
+        }
+    });
+}
+
 
 /**--------------------------------------------------------------------------------------
  * [LEFT MENU - CLIENTS] 

@@ -282,6 +282,8 @@ class Clients extends Controller {
         case 'payments':
         case 'timesheets':
         case 'notes':
+        case 'goals':
+        case 'reminders':
         case 'tickets':
         case 'contacts':
         case 'projects':
@@ -335,6 +337,8 @@ class Clients extends Controller {
         case 'payments':
         case 'timesheets':
         case 'notes':
+        case 'goals':
+        case 'reminders':
         case 'tickets':
         case 'contacts':
         case 'projects':

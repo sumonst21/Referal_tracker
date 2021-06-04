@@ -33,7 +33,7 @@
 
 
                 <!--invoices-->
-                @if(auth()->user()->is_client_owner)
+         <!--        @if(auth()->user()->is_client_owner)
                 <li class="sidenav-menu-item {{ $page['mainmenu_invoices'] ?? '' }} menu-tooltip menu-with-tooltip"
                 title="{{ cleanLang(__('lang.invoices')) }}">
                     <a class="waves-effect waves-dark" href="/invoices" aria-expanded="false" target="_self">
@@ -42,11 +42,11 @@
                         </span>
                     </a>
                 </li>
-                @endif
+                @endif -->
                 <!--invoices-->
 
                 <!--payments-->
-                @if(auth()->user()->is_client_owner)
+             <!--    @if(auth()->user()->is_client_owner)
                 <li class="sidenav-menu-item {{ $page['mainmenu_payments'] ?? '' }} menu-tooltip menu-with-tooltip"
                 title="{{ cleanLang(__('lang.payments')) }}">
                     <a class="waves-effect waves-dark" href="/payments" aria-expanded="false" target="_self">
@@ -55,12 +55,12 @@
                         </span>
                     </a>
                 </li>
-                @endif
+                @endif -->
                 <!--payments-->
 
                 
                 <!--subscriptions-->
-                <li class="sidenav-menu-item {{ $page['mainmenu_subscription'] ?? '' }} menu-tooltip menu-with-tooltip"
+             <!--    <li class="sidenav-menu-item {{ $page['mainmenu_subscription'] ?? '' }} menu-tooltip menu-with-tooltip"
                     title="{{ cleanLang(__('lang.subscriptions')) }}">
                     <a class="waves-effect waves-dark p-r-20" href="/subscriptions" aria-expanded="false"
                         target="_self">
@@ -70,8 +70,8 @@
                     </a>
                 </li>
 
-                <!--estimates-->
-                @if(auth()->user()->is_client_owner)
+ -->                <!--estimates-->
+                <!-- @if(auth()->user()->is_client_owner)
                 <li class="sidenav-menu-item {{ $page['mainmenu_estimates'] ?? '' }} menu-tooltip menu-with-tooltip"
                 title="{{ cleanLang(__('lang.estimates')) }}">
                     <a class="waves-effect waves-dark" href="/estimates" aria-expanded="false" target="_self">
@@ -80,7 +80,7 @@
                         </span>
                     </a>
                 </li>
-                @endif
+                @endif -->
                 <!--estimates-->
 
 
@@ -109,7 +109,7 @@
                 <!--tickets-->
 
                 <!--knowledgebase-->
-                <li class="sidenav-menu-item {{ $page['mainmenu_kb'] ?? '' }} menu-tooltip menu-with-tooltip"
+              <!--   <li class="sidenav-menu-item {{ $page['mainmenu_kb'] ?? '' }} menu-tooltip menu-with-tooltip"
                 title="{{ cleanLang(__('lang.knowledgebase')) }}">
                     <a class="waves-effect waves-dark p-r-20" href="/knowledgebase" aria-expanded="false" target="_self"
                         >
@@ -117,7 +117,7 @@
                         <span class="hide-menu">{{ cleanLang(__('lang.knowledgebase')) }}
                         </span>
                     </a>
-                </li>
+                </li> -->
                 <!--knowledgebase-->
 
             </ul>

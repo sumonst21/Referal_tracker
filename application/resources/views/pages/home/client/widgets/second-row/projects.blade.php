@@ -1,5 +1,5 @@
 <div class="col-lg-6  col-md-12">
-    <div class="card">
+    <div class="card card-box">
         <div class="card-body">
             <h5 class="card-title">{{ cleanLang(__('lang.my_projects')) }}</h5>
             @php $projects = $payload['my_projects'] ; @endphp

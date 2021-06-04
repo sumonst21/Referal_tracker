@@ -3,6 +3,19 @@
 
         <!--title-->
         <div class="form-group row">
+            <label class="col-sm-12 text-left control-label col-form-label required">{{cleanLang(__('lang.Select Note Type')) }}*</label>
+            <div class="col-sm-12">
+                <!-- value="{{ $note->note_title ?? '' }}" -->
+                <select class="form-control form-control-sm" autocomplete="off" id="note_type"
+                    name="note_type" >
+                    <option value="client">{{cleanLang(__('lang.Client Note')) }}</option>
+                    <option value='call'>{{cleanLang(__('lang.Call Note')) }}</option>
+                </select>
+            </div>
+        </div>
+
+        <!--title-->
+        <div class="form-group row">
             <label class="col-sm-12 text-left control-label col-form-label required">{{ cleanLang(__('lang.title')) }}*</label>
             <div class="col-sm-12">
                 <input type="text" class="form-control form-control-sm" autocomplete="off" id="note_title"

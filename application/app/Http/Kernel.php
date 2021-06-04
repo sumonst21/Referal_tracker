@@ -156,6 +156,20 @@ class Kernel extends HttpKernel {
         'notesMiddlewareDestroy' => \App\Http\Middleware\Notes\Destroy::class,
         'notesMiddlewareShow' => \App\Http\Middleware\Notes\Show::class,
 
+        //[growcrm] - [goals]
+        'goalsMiddlewareIndex' => \App\Http\Middleware\Goals\Index::class,
+        'goalsMiddlewareCreate' => \App\Http\Middleware\Goals\Create::class,
+        'goalsMiddlewareEdit' => \App\Http\Middleware\Goals\Edit::class,
+        'goalsMiddlewareDestroy' => \App\Http\Middleware\Goals\Destroy::class,
+        'goalsMiddlewareShow' => \App\Http\Middleware\Goals\Show::class,
+
+        //[growcrm] - [reminders]
+        'remindersMiddlewareIndex' => \App\Http\Middleware\Reminders\Index::class,
+        'remindersMiddlewareCreate' => \App\Http\Middleware\Reminders\Create::class,
+        'remindersMiddlewareEdit' => \App\Http\Middleware\Reminders\Edit::class,
+        'remindersMiddlewareDestroy' => \App\Http\Middleware\Reminders\Destroy::class,
+        'remindersMiddlewareShow' => \App\Http\Middleware\Reminders\Show::class,
+
         //[growcrm] - [items]
         'itemsMiddlewareIndex' => \App\Http\Middleware\Items\Index::class,
         'itemsMiddlewareCreate' => \App\Http\Middleware\Items\Create::class,

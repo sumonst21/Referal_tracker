@@ -224,6 +224,15 @@ return [
         'note_title' => strtolower(__('lang.title')),
         'note_description' => strtolower(__('lang.description')),
 
+        //goal
+        'goal_title' => strtolower(__('lang.title')),
+        'goal_description' => strtolower(__('lang.description')),
+
+        //goal
+        'reminder_title' => strtolower(__('lang.title')),
+        'reminder_description' => strtolower(__('lang.description')),
+        'reminder_date' => strtolower(__('lang.date')),
+
         //payment
         'payment_gateway' => strtolower(__('lang.payment_method')),
         'payment_date' => strtolower(__('lang.payment_date')),

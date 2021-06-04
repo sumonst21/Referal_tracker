@@ -96,6 +96,8 @@ class Show {
                 'settings.project_permissions_view_expenses' => $this->projectpermissions->check('expenses-view', $project),
                 'settings.project_permissions_view_tickets' => $this->projectpermissions->check('tickets-view', $project),
                 'settings.project_permissions_view_notes' => $this->projectpermissions->check('notes-view', $project),
+                'settings.project_permissions_view_goals' => $this->projectpermissions->check('goals-view', $project),
+                'settings.project_permissions_view_reminders' => $this->projectpermissions->check('reminders-view', $project),
             ]);
         }
 

@@ -15,6 +15,8 @@ Relation::morphMap([
     'ticket' => 'App\Models\Ticket',
     'contract' => 'App\Models\Contract',
     'note' => 'App\Models\Note',
+    'goal' => 'App\Models\Goal',
+    'reminder' => 'App\Models\Reminder',
 ]);
 
 class Tag extends Model {

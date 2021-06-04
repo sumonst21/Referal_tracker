@@ -37,7 +37,7 @@
     <link href="public/css/custom.css?v={{ config('system.versioning') }}" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="public/images/favicon/apple-icon-57x57.png">
+   <!--  <link rel="apple-touch-icon" sizes="57x57" href="public/images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="public/images/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="public/images/favicon/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="public/images/favicon/apple-icon-76x76.png">
@@ -49,7 +49,9 @@
     <link rel="icon" type="image/png" sizes="192x192" href="public/images/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="public/images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="public/images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/images/favicon/favicon-16x16.png"> -->
+    <!-- <link rel="shortcut icon" href="public/images/favicon/fav-icon.png" type="image/x-icon"> -->
+      <link rel="icon" type="image/png" sizes="16x16" href="public/images/favicon/Retainify Abbreviated Icon Logo@2x.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="public/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">

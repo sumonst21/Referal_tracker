@@ -39,6 +39,10 @@ class ProjectPermissions {
             'files-upload',
             'notes-view',
             'notes-create',
+            'goals-view',
+            'goals-create',
+            'reminders-view',
+            'reminders-create',
             'comments-view',
             'comments-post',
             'tasks-view',
@@ -428,6 +432,106 @@ class ProjectPermissions {
                 }
             }
         }
+
+        /**
+         * [CREATE AND VIEW PROJECT Goals]
+         * uselful for displaying menu item
+         */
+        if ($action == 'goals-view') {
+            //team
+            if (auth()->user()->is_team) {
+                //global
+                if (auth()->user()->role->role_projects_scope == 'global') {
+                    return true;
+                }
+                //managers
+                if ($project_managers->contains(auth()->id())) {
+                    return true;
+                }
+                //assigned
+                if ($assigned_users->contains(auth()->id())) {
+                    return true;
+                }
+                //creator
+                if ($project->project_creatorid == auth()->id()) {
+                    return true;
+                }
+            }
+        }
+
+        /**
+         * [VIEW PROJECT NOTES]
+         * uselful for displaying menu item & post form
+         */
+        if ($action == 'goals-create') {
+
+            //team
+            if (auth()->user()->is_team) {
+                //global
+                if (auth()->user()->role->role_projects_scope == 'global') {
+                    return true;
+                }
+                //managers
+                if ($project_managers->contains(auth()->id())) {
+                    return true;
+                }
+                //assigned
+                if ($assigned_users->contains(auth()->id())) {
+                    return true;
+                }
+            }
+        }
+
+
+        /**
+         * [CREATE AND VIEW PROJECT NOTES]
+         * uselful for displaying menu item
+         */
+        if ($action == 'reminders-view') {
+            //team
+            if (auth()->user()->is_team) {
+                //global
+                if (auth()->user()->role->role_projects_scope == 'global') {
+                    return true;
+                }
+                //managers
+                if ($project_managers->contains(auth()->id())) {
+                    return true;
+                }
+                //assigned
+                if ($assigned_users->contains(auth()->id())) {
+                    return true;
+                }
+                //creator
+                if ($project->project_creatorid == auth()->id()) {
+                    return true;
+                }
+            }
+        }
+
+        /**
+         * [VIEW PROJECT NOTES]
+         * uselful for displaying menu item & post form
+         */
+        if ($action == 'reminders-create') {
+
+            //team
+            if (auth()->user()->is_team) {
+                //global
+                if (auth()->user()->role->role_projects_scope == 'global') {
+                    return true;
+                }
+                //managers
+                if ($project_managers->contains(auth()->id())) {
+                    return true;
+                }
+                //assigned
+                if ($assigned_users->contains(auth()->id())) {
+                    return true;
+                }
+            }
+        }
+
 
         /**
          * [VIEW PROJECT TASKS]

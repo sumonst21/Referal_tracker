@@ -3,11 +3,11 @@
     <div class="card">
         <div class="card-body p-l-15 p-r-15">
             <div class="d-flex p-10 no-block">
-                <span class="align-slef-center">
+                <span class="align-slef-center card-2">
                     <h2 class="m-b-0">{{ $payload['projects']['completed'] }}</h2>
-                    <h6 class="text-muted m-b-0">{{ cleanLang(__('lang.projects')) }} - {{ cleanLang(__('lang.completed')) }}</h6>
+                    <h6 class="text-success m-b-0">{{ cleanLang(__('lang.projects')) }} - {{ cleanLang(__('lang.completed')) }}</h6>
                 </span>
-                <div class="align-self-center display-6 ml-auto"><i class="text-success icon-Credit-Card2"></i>
+                <div class="align-self-center display-6 ml-auto bg-success"><i class="mdi mdi-wallet text-white icon-lg"></i>
                 </div>
             </div>
         </div>

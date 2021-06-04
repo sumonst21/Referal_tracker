@@ -59,6 +59,14 @@ class User extends Authenticatable {
         return $this->morphMany('App\Models\Note', 'noteresource');
     }
 
+    public function goals() {
+        return $this->morphMany('App\Models\Goal', 'goalresource');
+    }
+
+    public function reminders() {
+        return $this->morphMany('App\Models\Reminder', 'reminderresource');
+    }
+
     /**
      * The tasks that are assigned to the user.
      */

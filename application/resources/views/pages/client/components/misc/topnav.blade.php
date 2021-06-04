@@ -1,7 +1,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs profile-tab" role="tablist">
                     <!--timeline-->
-                    <li class="nav-item">
+                    <li class="nav-item" id="first-ul-click">
                         <a class="nav-link  tabs-menu-item {{ $page['tabmenu_timeline'] ?? '' }}"
                             href="{{ url('clients') }}/{{ $client->client_id }}" role="tab">{{ cleanLang(__('lang.timeline')) }}</a>
                     </li>
@@ -106,6 +106,33 @@
                             data-dynamic-url="{{ url('clients') }}/{{ $client->client_id }}/notes"
                             data-url="{{ url('/notes') }}?source=ext&page=1&noteresource_type=client&noteresource_id={{ $client->client_id }}"
                             href="#clients_ajaxtab" role="tab">{{ cleanLang(__('lang.notes')) }}</a>
+                    </li>
+
+                    <!--goals-->
+                    <li class="nav-item">
+                        <a class="nav-link  tabs-menu-item js-dynamic-url js-ajax-ux-request {{ $page['tabmenu_goals'] ?? '' }}"
+                            id="tabs-menu-goals" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
+                            data-dynamic-url="{{ url('clients') }}/{{ $client->client_id }}/goals"
+                            data-url="{{ url('/goals') }}?source=ext&page=1&goalresource_type=client&goalresource_id={{ $client->client_id }}"
+                            href="#clients_ajaxtab" role="tab">{{ cleanLang(__('lang.goals')) }}</a>
+                    </li>
+
+                    <!--tasks-->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link  tabs-menu-item js-dynamic-url js-ajax-ux-request {{ $page['tabmenu_tasks'] ?? '' }}"
+                            id="tabs-menu-task" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
+                            data-dynamic-url="{{ url('clients') }}/{{ $client->client_id }}/client_tasks"
+                            data-url="{{ url('/client-tasks') }}?source=ext&page=1&client_tasksresource_type=client&client_tasksresource_id={{ $client->client_id }}"
+                            href="#clients_ajaxtab" role="tab">{{ cleanLang(__('lang.tasks')) }}</a>
+                    </li> -->
+
+                    <!--reminder-->
+                    <li class="nav-item">
+                        <a class="nav-link  tabs-menu-item js-dynamic-url js-ajax-ux-request {{ $page['tabmenu_reminders'] ?? '' }}"
+                            id="tabs-menu-reminders" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
+                            data-dynamic-url="{{ url('clients') }}/{{ $client->client_id }}/reminders"
+                            data-url="{{ url('/reminders') }}?source=ext&page=1&reminderresource_type=client&reminderresource_id={{ $client->client_id }}"
+                            href="#clients_ajaxtab" role="tab">{{ cleanLang(__('lang.reminders')) }}</a>
                     </li>
 
                 </ul>

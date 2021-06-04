@@ -1,4 +1,4 @@
-    <div class="col-lg-8  col-md-12">
+  <!--   <div class="col-lg-8  col-md-12">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex m-b-30">
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!--[DYNAMIC INLINE SCRIPT] - Backend Variables to Javascript Variables-->

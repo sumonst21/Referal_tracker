@@ -123,15 +123,29 @@
                     </a>
                 </li>
 
+                <!-- Goals -->
+                <li class="nav-item hidden">
+                    <a class="nav-link waves-effect waves-dark" href="/goals" id="32" aria-expanded="false">
+                        <i class="sl-icon-notebook"></i>
+                    </a>
+                </li>
+
+                <!-- Reminders -->
+                <li class="nav-item hidden">
+                    <a class="nav-link waves-effect waves-dark" href="/reminders" id="32" aria-expanded="false">
+                        <i class="sl-icon-notebook"></i>
+                    </a>
+                </li>
+
 
                 <!-- settings -->
                 @if(auth()->user()->is_admin)
-                <li class="nav-item">
+           <!--      <li class="nav-item">
                     <a class="nav-link waves-effect waves-dark font-22 p-t-10 p-r-10" href="/settings" id="32"
                         aria-expanded="false">
                         <i class="sl-icon-settings"></i>
                     </a>
-                </li>
+                </li> -->
                 @endif
 
                 <!-- add content -->
@@ -279,7 +293,7 @@
                 </li>
                 @endif
 
-
+                      
                 <!-- language -->
                 @if(config('system.settings_system_language_allow_users_to_change') == 'yes')
                 <li class="nav-item dropdown">
@@ -290,14 +304,15 @@
                     <div class="dropdown-menu dropdown-menu-right animated bounceInDown language">
                         <div class="row">
                             @foreach(request('system_languages') as $key => $language)
+                            
                             <div class="col-6">
                                 <a class="dropdown-item js-ajax-request text-capitalize" href="javascript:void(0)"
                                     data-url="{{ url('user/updatelanguage') }}" data-type="form" data-ajax-type="post"
                                     data-form-id="topNavLangauage{{ $key }}">{{ $language }}
                                 </a>
                                 <span id="topNavLangauage{{ $key }}">
-                                    <input type="hidden" name="language" value="{{ $language }}">
-                                    <input type="hidden" name="current_url" value="{{ url()->full() }}">
+                                    <input type="text" name="language" value="{{ $language }}">
+                                    <input type="text" name="current_url" value="{{ url()->full() }}">
                                 </span>
                             </div>
                             @endforeach
@@ -356,11 +371,11 @@
 
                             <!--my timesheets-->
                             @if(auth()->user()->is_team && auth()->user()->role->role_timesheets >= 1)
-                            <li>
+                     <!--        <li>
                                 <a href="{{ url('/timesheets/my') }}">
                                     <i class="ti-timer p-r-4"></i>
                                     {{ cleanLang(__('lang.my_time_sheets')) }}</a>
-                            </li>
+                            </li> -->
                             @endif
 
                             @if(auth()->user()->is_client_owner)
@@ -391,7 +406,7 @@
                             @endif
 
                             <!--update notifcations-->
-                            <li>
+                <!--             <li>
                                 <a href="javascript:void(0)" id="topnavUpdateNotificationsButton"
                                     class="edit-add-modal-button js-ajax-ux-request reset-target-modal-form"
                                     data-toggle="modal" data-target="#commonModal"
@@ -405,7 +420,7 @@
                                     data-action-ajax-loading-target="commonModalBody">
                                     <i class="sl-icon-bell p-r-4"></i>
                                     {{ cleanLang(__('lang.notification_settings')) }}</a>
-                            </li>
+                            </li> -->
 
                             <!--update password-->
                             <li>
