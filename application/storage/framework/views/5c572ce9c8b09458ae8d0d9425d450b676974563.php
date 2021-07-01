@@ -78,7 +78,7 @@
             <?php endif; ?>
 
              <!--goals-->
-            <?php if(config('settings.project_permissions_view_goals')): ?>
+       <!--      <?php if(config('settings.project_permissions_view_goals')): ?>
             <li class="nav-item ">
                 <a class="nav-link  tabs-menu-item   js-dynamic-url js-ajax-ux-request <?php echo e($page['tabmenu_goals'] ?? ''); ?>"
                     id="tabs-menu-goals" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
@@ -86,7 +86,18 @@
                     data-url="<?php echo e(url('/goals')); ?>?source=ext&goalresource_type=project&goalresource_id=<?php echo e($project->project_id); ?>"
                     href="#projects_ajaxtab" role="tab"><?php echo e(cleanLang(__('lang.goals'))); ?></a>
             </li>
-            <?php endif; ?>
+            <?php endif; ?> -->
+
+             <!--reminders-->
+           <!--  <?php if(config('settings.project_permissions_view_reminders')): ?>
+            <li class="nav-item ">
+                <a class="nav-link  tabs-menu-item   js-dynamic-url js-ajax-ux-request <?php echo e($page['tabmenu_reminders'] ?? ''); ?>"
+                    id="tabs-menu-reminders" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
+                    data-dynamic-url="<?php echo e(url('/projects')); ?>/<?php echo e($project->project_id); ?>/reminders"
+                    data-url="<?php echo e(url('/reminders')); ?>?source=ext&reminderresource_type=project&reminderresource_id=<?php echo e($project->project_id); ?>"
+                    href="#projects_ajaxtab" role="tab"><?php echo e(cleanLang(__('lang.reminders'))); ?></a>
+            </li>
+            <?php endif; ?> -->
             <!--billing-->
             <?php if(auth()->user()->is_team || auth()->user()->is_client_owner): ?>
             <li class="nav-item dropdown <?php echo e($page['tabmenu_more'] ?? ''); ?>">

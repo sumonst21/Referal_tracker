@@ -1,0 +1,1 @@
+<h1>Hello</h1><?php /**PATH /var/www/html/application/resources/views/test.blade.php ENDPATH**/ ?>

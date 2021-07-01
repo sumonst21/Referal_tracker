@@ -1,9 +1,20 @@
 <?php
-
 //TESTING [DEV]
 Route::get("test", "Test@index");
 Route::post("test", "Test@index");
+Route::get('/testmail', function(){
+	
+    echo "<pre>";
+    try {
+        Mail::raw('Text', function ($message){
+            $message->to('testindiit@mailinator.com');
+        });
 
+    } catch (\Exception $e) {
+        dd($e);
+    }
+    echo "</pre>";
+});
 //HOME PAGE
 Route::any('/', function () {
     return redirect('/home');
@@ -37,7 +48,7 @@ Route::group(['prefix' => 'clients'], function () {
 
     //dynamic load
     Route::any("/{client}/{section}", "Clients@showDynamic")
-        ->where(['client' => '[0-9]+', 'section' => 'contacts|projects|files|tickets|invoices|expenses|payments|timesheets|estimates|notes|goals|reminders']);
+        ->where(['client' => '[0-9]+', 'section' => 'contacts|projects|files|tickets|invoices|expenses|payments|timesheets|estimates|notes|goals|reminders|client_tasks']);
 });
 Route::any("/client/{x}/profile", "Clients@profile")->where('x', '[0-9]+');
 Route::resource('clients', 'Clients');
@@ -204,7 +215,7 @@ Route::group(['prefix' => 'projects'], function () {
 
     //dynamic load
     Route::any("/{project}/{section}", "Projects@showDynamic")
-        ->where(['project' => '[0-9]+', 'section' => 'details|comments|files|tasks|invoices|payments|timesheets|expenses|estimates|milestones|tickets|notes']);
+        ->where(['project' => '[0-9]+', 'section' => 'details|comments|files|tasks|invoices|payments|timesheets|expenses|estimates|milestones|tickets|notes|goals|reminders']);
 });
 Route::resource('projects', 'Projects');
 
@@ -350,38 +361,38 @@ Route::resource('reminders', 'Reminders');
 
 //client_tasks
 Route::group(['prefix' => 'client_tasks'], function () {
-    Route::any("/search", "client_Tasks@index");
-    Route::any("/timer/{id}/start", "client_Tasks@timerStart")->where('id', '[0-9]+');
-    Route::any("/timer/{id}/stop", "client_Tasks@timerStop")->where('id', '[0-9]+');
-    Route::any("/timer/{id}/stopall", "client_Tasks@timerStopAll")->where('id', '[0-9]+');
-    Route::post("/delete", "client_Tasks@destroy")->middleware(['demoModeCheck']);
-    Route::post("/{task}/toggle-status", "client_Tasks@toggleStatus")->where('task', '[0-9]+');
-    Route::post("/{task}/update-description", "client_Tasks@updateDescription")->where('task', '[0-9]+');
-    Route::post("/{task}/attach-files", "client_Tasks@attachFiles")->where('task', '[0-9]+');
+    Route::any("/search", "Client_Tasks@index");
+    Route::any("/timer/{id}/start", "Client_Tasks@timerStart")->where('id', '[0-9]+');
+    Route::any("/timer/{id}/stop", "Client_Tasks@timerStop")->where('id', '[0-9]+');
+    Route::any("/timer/{id}/stopall", "Client_Tasks@timerStopAll")->where('id', '[0-9]+');
+    Route::post("/delete", "Client_Tasks@destroy")->middleware(['demoModeCheck']);
+    Route::post("/{task}/toggle-status", "Client_Tasks@toggleStatus")->where('task', '[0-9]+');
+    Route::post("/{task}/update-description", "Client_Tasks@updateDescription")->where('task', '[0-9]+');
+    Route::post("/{task}/attach-files", "Client_Tasks@attachFiles")->where('task', '[0-9]+');
     Route::delete("/delete-attachment/{uniqueid}", "client_Tasks@deleteAttachment")->middleware(['demoModeCheck']);
-    Route::get("/download-attachment/{uniqueid}", "client_Tasks@downloadAttachment");
-    Route::post("/{task}/post-comment", "client_Tasks@storeComment")->where('task', '[0-9]+');
-    Route::delete("/delete-comment/{commentid}", "client_Tasks@deleteComment")->where('commentid', '[0-9]+');
-    Route::post("/{task}/update-title", "client_Tasks@updateTitle")->where('task', '[0-9]+');
-    Route::post("/{task}/add-checklist", "client_Tasks@storeChecklist")->where('task', '[0-9]+');
-    Route::post("/update-checklist/{checklistid}", "client_Tasks@updateChecklist")->where('checklistid', '[0-9]+');
-    Route::delete("/delete-checklist/{checklistid}", "client_Tasks@deleteChecklist")->where('checklistid', '[0-9]+');
-    Route::post("/toggle-checklist-status/{checklistid}", "client_Tasks@toggleChecklistStatus")->where('checklistid', '[0-9]+');
-    Route::post("/{task}/update-start-date", "client_Tasks@updateStartDate")->where('task', '[0-9]+');
-    Route::post("/{task}/update-due-date", "client_Tasks@updateDueDate")->where('task', '[0-9]+');
-    Route::post("/{task}/update-status", "client_Tasks@updateStatus")->where('task', '[0-9]+');
-    Route::post("/{task}/update-priority", "client_Tasks@updatePriority")->where('task', '[0-9]+');
-    Route::post("/{task}/update-visibility", "client_Tasks@updateVisibility")->where('task', '[0-9]+');
-    Route::post("/{task}/update-milestone", "client_Tasks@updateMilestone")->where('task', '[0-9]+');
-    Route::post("/{task}/update-assigned", "client_Tasks@updateAssigned")->where('task', '[0-9]+');
-    Route::post("/update-position", "client_Tasks@updatePosition");
-    Route::any("/v/{task}/{slug}", "client_Tasks@index")->where('task', '[0-9]+');
-    Route::post("/{task}/update-custom", "client_Tasks@updateCustomFields")->where('task', '[0-9]+');
-    Route::put("/{task}/archive", "client_tasks@archive")->where('task', '[0-9]+');
-    Route::put("/{task}/activate", "client_tasks@activate")->where('task', '[0-9]+');
+    Route::get("/download-attachment/{uniqueid}", "Client_Tasks@downloadAttachment");
+    Route::post("/{task}/post-comment", "Client_Tasks@storeComment")->where('task', '[0-9]+');
+    Route::delete("/delete-comment/{commentid}", "Client_Tasks@deleteComment")->where('commentid', '[0-9]+');
+    Route::post("/{task}/update-title", "Client_Tasks@updateTitle")->where('task', '[0-9]+');
+    Route::post("/{task}/add-checklist", "Client_Tasks@storeChecklist")->where('task', '[0-9]+');
+    Route::post("/update-checklist/{checklistid}", "Client_Tasks@updateChecklist")->where('checklistid', '[0-9]+');
+    Route::delete("/delete-checklist/{checklistid}", "Client_Tasks@deleteChecklist")->where('checklistid', '[0-9]+');
+    Route::post("/toggle-checklist-status/{checklistid}", "Client_Tasks@toggleChecklistStatus")->where('checklistid', '[0-9]+');
+    Route::post("/{task}/update-start-date", "Client_Tasks@updateStartDate")->where('task', '[0-9]+');
+    Route::post("/{task}/update-due-date", "Client_Tasks@updateDueDate")->where('task', '[0-9]+');
+    Route::post("/{task}/update-status", "Client_Tasks@updateStatus")->where('task', '[0-9]+');
+    Route::post("/{task}/update-priority", "Client_Tasks@updatePriority")->where('task', '[0-9]+');
+    Route::post("/{task}/update-visibility", "Client_Tasks@updateVisibility")->where('task', '[0-9]+');
+    Route::post("/{task}/update-milestone", "Client_Tasks@updateMilestone")->where('task', '[0-9]+');
+    Route::post("/{task}/update-assigned", "Client_Tasks@updateAssigned")->where('task', '[0-9]+');
+    Route::post("/update-position", "Client_Tasks@updatePosition");
+    Route::any("/v/{task}/{slug}", "Client_Tasks@index")->where('task', '[0-9]+');
+    Route::post("/{task}/update-custom", "Client_Tasks@updateCustomFields")->where('task', '[0-9]+');
+    Route::put("/{task}/archive", "Client_Tasks@archive")->where('task', '[0-9]+');
+    Route::put("/{task}/activate", "Client_Tasks@activate")->where('task', '[0-9]+');
 
 });
-Route::resource('client_tasks', 'client_Tasks');
+Route::resource('client_tasks', 'Client_Tasks');
 
 //COMMENTS
 Route::group(['prefix' => 'comments'], function () {

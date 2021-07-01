@@ -149,6 +149,8 @@ class Clients extends Controller {
             'client_company_name' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
+            'phone' =>     'required',
+            'position' => 'required',
             'email' => 'required|email|unique:users,email',
         ], $messages);
 

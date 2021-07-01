@@ -78,7 +78,7 @@
             @endif
 
              <!--goals-->
-            @if(config('settings.project_permissions_view_goals'))
+       <!--      @if(config('settings.project_permissions_view_goals'))
             <li class="nav-item ">
                 <a class="nav-link  tabs-menu-item   js-dynamic-url js-ajax-ux-request {{ $page['tabmenu_goals'] ?? '' }}"
                     id="tabs-menu-goals" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
@@ -86,7 +86,18 @@
                     data-url="{{ url('/goals') }}?source=ext&goalresource_type=project&goalresource_id={{ $project->project_id }}"
                     href="#projects_ajaxtab" role="tab">{{ cleanLang(__('lang.goals')) }}</a>
             </li>
-            @endif
+            @endif -->
+
+             <!--reminders-->
+           <!--  @if(config('settings.project_permissions_view_reminders'))
+            <li class="nav-item ">
+                <a class="nav-link  tabs-menu-item   js-dynamic-url js-ajax-ux-request {{ $page['tabmenu_reminders'] ?? '' }}"
+                    id="tabs-menu-reminders" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
+                    data-dynamic-url="{{ url('/projects') }}/{{ $project->project_id }}/reminders"
+                    data-url="{{ url('/reminders') }}?source=ext&reminderresource_type=project&reminderresource_id={{ $project->project_id }}"
+                    href="#projects_ajaxtab" role="tab">{{ cleanLang(__('lang.reminders')) }}</a>
+            </li>
+            @endif -->
             <!--billing-->
             @if(auth()->user()->is_team || auth()->user()->is_client_owner)
             <li class="nav-item dropdown {{ $page['tabmenu_more'] ?? '' }}">

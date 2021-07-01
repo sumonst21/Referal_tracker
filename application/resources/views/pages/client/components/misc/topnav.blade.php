@@ -2,8 +2,8 @@
                 <ul class="nav nav-tabs profile-tab" role="tablist">
                     <!--timeline-->
                     <li class="nav-item" id="first-ul-click">
-                        <a class="nav-link  tabs-menu-item {{ $page['tabmenu_timeline'] ?? '' }}"
-                            href="{{ url('clients') }}/{{ $client->client_id }}" role="tab">{{ cleanLang(__('lang.timeline')) }}</a>
+                        <a class="nav-link first-ul-click tabs-menu-item {{ $page['tabmenu_timeline'] ?? '' }}"
+                            href="{{ url('clients') }}/{{ $client->client_id }}" role="tab">{{ cleanLang(__('lang.activity')) }}</a>
                     </li>
                     <!--contacts-->
                     <li class="nav-item">
@@ -101,7 +101,7 @@
 
                     <!--notes-->
                     <li class="nav-item">
-                        <a class="nav-link  tabs-menu-item js-dynamic-url js-ajax-ux-request {{ $page['tabmenu_notes'] ?? '' }}"
+                        <a class="nav-link notes_class tabs-menu-item js-dynamic-url js-ajax-ux-request {{ $page['tabmenu_notes'] ?? '' }}"
                             id="tabs-menu-notes" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
                             data-dynamic-url="{{ url('clients') }}/{{ $client->client_id }}/notes"
                             data-url="{{ url('/notes') }}?source=ext&page=1&noteresource_type=client&noteresource_id={{ $client->client_id }}"
@@ -118,13 +118,13 @@
                     </li>
 
                     <!--tasks-->
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link  tabs-menu-item js-dynamic-url js-ajax-ux-request {{ $page['tabmenu_tasks'] ?? '' }}"
                             id="tabs-menu-task" data-toggle="tab" data-loading-class="loading-tabs" data-loading-target="embed-content-container"
                             data-dynamic-url="{{ url('clients') }}/{{ $client->client_id }}/client_tasks"
-                            data-url="{{ url('/client-tasks') }}?source=ext&page=1&client_tasksresource_type=client&client_tasksresource_id={{ $client->client_id }}"
+                            data-url="{{ url('/client_tasks') }}?source=ext&page=1&client_tasksresource_type=client&client_tasksresource_id={{ $client->client_id }}"
                             href="#clients_ajaxtab" role="tab">{{ cleanLang(__('lang.tasks')) }}</a>
-                    </li> -->
+                    </li>
 
                     <!--reminder-->
                     <li class="nav-item">
@@ -136,3 +136,36 @@
                     </li>
 
                 </ul>
+
+               <!--  <script type="text/javascript">
+                    if(localStorage.getItem('login') == '1')
+                    {
+                        //console.log('M HERE');
+                        
+                        setTimeout(function(){ 
+                            //console.log('note tab open');
+                            $('#tabs-menu-notes').click();
+                            setTimeout(function(){ 
+                               // console.log('note popup open');
+                                $('#commonModal').css('opacity','0');
+                                $('.action-class-notes').click();
+                                setTimeout(function(){ 
+                                   // console.log('note popup close');
+                                    $('#commonModalExtraCloseIcon').click();
+                                    $('#commonModal').css('opacity','1');
+                                    setTimeout(function(){ 
+                                        localStorage.setItem('login','0');
+                                        // $(".first-ul-click").addClass('active');
+                                        // window.location.href = $(".first-ul-click").attr('href');
+                                        // $(".notes_class").removeClass('active')
+                                        //$('#first-ul-click a').click();
+                                    }, 1600);
+                                }, 1400);
+                            }, 1200);
+                        }, 1000);
+                    }
+                    else
+                    {
+                      //alert('Not lolpen');
+                    }
+                </script> -->

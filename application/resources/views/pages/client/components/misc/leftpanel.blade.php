@@ -4,11 +4,29 @@
     @if(isset($client['client_logo_folder']) && $client['client_logo_folder'] != '')
     <div class="card-body profile_header">
         <img src="{{ url('/') }}/storage/logos/clients/{{ $client['client_logo_folder'] ?? '0' }}/{{ $client['client_logo_filename'] ?? '' }}">
+     <button type="button" title="{{ cleanLang(__('lang.edit')) }}"
+            class="data-toggle-action-tooltip btn btn-outline-success btn-circle btn-sm edit-add-modal-button js-ajax-ux-request reset-target-modal-form"
+            data-toggle="modal" data-target="#commonModal"
+            data-url="{{ urlResource('/contacts/'.$owner->id.'/edit') }}" data-loading-target="commonModalBody"
+            data-modal-title="{{ cleanLang(__('lang.edit_user')) }}"
+            data-action-url="{{ urlResource('/contacts/'.$owner->id.'?ref=list') }}" data-action-method="PUT"
+            data-action-ajax-class="" data-action-ajax-loading-target="contacts-td-container" style="float: right;width: 36px;height: 36px;">
+            <i class="sl-icon-note" style="font-size: 18px;"></i>
+  </button>   
     </div>
     @else
     <!--no logo -->
     <div class="card-body profile_header client logo-text">
         {{ $client->client_company_name }}
+    <button type="button" title="{{ cleanLang(__('lang.edit')) }}"
+            class="data-toggle-action-tooltip btn btn-outline-success btn-circle btn-sm edit-add-modal-button js-ajax-ux-request reset-target-modal-form"
+            data-toggle="modal" data-target="#commonModal"
+            data-url="{{ urlResource('/contacts/'.$owner->id.'/edit') }}" data-loading-target="commonModalBody"
+            data-modal-title="{{ cleanLang(__('lang.edit_user')) }}"
+            data-action-url="{{ urlResource('/contacts/'.$owner->id.'?ref=list') }}" data-action-method="PUT"
+            data-action-ajax-class="" data-action-ajax-loading-target="contacts-td-container" style="float: right;width: 36px;height: 36px;">
+            <i class="sl-icon-note" style="font-size: 18px;"></i>
+  </button>
     </div>
     @endif
     <div class="card-body p-t-0 p-b-0">
@@ -16,10 +34,22 @@
         <div>
             <small class="text-muted">{{ cleanLang(__('lang.client_name')) }}</small>
             <h6>{{ $client->client_company_name }}</h6>
-            <small class="text-muted">{{ cleanLang(__('lang.telephone')) }}</small>
-            <h6>{{ $client->client_phone }}</h6>
+            <!--<small class="text-muted">{{ cleanLang(__('lang.telephone')) }}</small>
+            <h6>{{ $client->client_phone }}</h6>-->
             <small class="text-muted">{{ cleanLang(__('lang.account_owner')) }}</small>
             <div class="m-b-10"><img src="{{ getUsersAvatar($owner->avatar_directory, $owner->avatar_filename) }}" alt="user" class="img-circle avatar-xsmall"> {{ $owner->first_name }} {{ $owner->last_name }}</div>
+             @if($owner->phone)
+            <small class="text-muted">{{ cleanLang(__('lang.telephone')) }}</small>
+            <div>{{ $owner->phone }}</div>
+            @else
+            <div></div>
+            @endif
+            @if($owner->position)
+            <small class="text-muted">{{ cleanLang(__('lang.position')) }}</small>
+            <div>{{ $owner->position }}</div>
+            @else
+            <div></div>
+            @endif
             <small class="text-muted">{{ cleanLang(__('lang.account_status')) }}</small>
             <div>
                 @if($client->client_status == 'active')

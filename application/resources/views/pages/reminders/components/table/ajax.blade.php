@@ -2,7 +2,7 @@
 <!--each row-->
 <tr id="reminder_{{ $reminder->reminder_id }}">
     @if(config('visibility.reminders_col_checkboxes'))
-    <td class="reminders_col_checkbox checkitem" id="reminder_col_checkbox_{{ $reminder->reminder_id }}">
+    <td class="reminders_col_checkbox checkitem" id="reminders_col_checkbox_{{ $reminder->reminder_id }}">
         <!--list checkbox-->
         <span class="list-checkboxes display-inline-block w-px-20">
             <input type="checkbox" id="listcheckbox-reminders-{{ $reminder->reminder_id }}" name="ids[{{ $reminder->reminder_id }}]"
@@ -54,20 +54,20 @@
                 data-ajax-type="DELETE" data-url="{{ url( '/') }}/reminders/{{  $reminder->reminder_id }} ">
                 <i class="sl-icon-trash"></i>
             </button>
-            <button type="button" title="{{ cleanLang(__('lang.edit')) }}"
+           <!--  <button type="button" title="{{ cleanLang(__('lang.edit')) }}"
                 class="data-toggle-action-tooltip btn btn-outline-success btn-circle btn-sm edit-add-modal-button js-ajax-ux-request reset-target-modal-form"
                 data-toggle="modal" data-target="#commonModal"
                 data-url="{{ urlResource('/reminders/'.$reminder->reminder_id.'/edit') }}" data-loading-target="commonModalBody"
                 data-modal-title="{{ cleanLang(__('lang.edit_reminder')) }}"
                 data-action-url="{{ urlResource('/reminders/'.$reminder->reminder_id.'?ref=list') }}" data-action-method="PUT"
                 data-action-ajax-class="" data-action-ajax-loading-target="reminders-td-container">
-                <i class="sl-icon-reminder"></i>
-            </button>
+                <i class="sl-icon-note"></i>
+            </button> -->
             @else
             <span class="btn btn-outline-default btn-circle btn-sm disabled  {{ runtimePlaceholdeActionsButtons() }}"
                 data-toggle="tooltip" title="{{ cleanLang(__('lang.actions_not_available')) }}"><i class="sl-icon-trash"></i></span>
             <span class="btn btn-outline-default btn-circle btn-sm disabled  {{ runtimePlaceholdeActionsButtons() }}"
-                data-toggle="tooltip" title="{{ cleanLang(__('lang.actions_not_available')) }}"><i class="sl-icon-reminder"></i></span>
+                data-toggle="tooltip" title="{{ cleanLang(__('lang.actions_not_available')) }}"><i class="sl-icon-note"></i></span>
             @endif
             <a href="javascript:void(0)" title="{{ cleanLang(__('lang.view')) }}"
                 class="data-toggle-action-tooltip btn btn-outline-info btn-circle btn-sm show-modal-button js-ajax-ux-request"

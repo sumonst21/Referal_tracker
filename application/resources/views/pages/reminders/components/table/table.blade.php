@@ -19,7 +19,7 @@
                         @endif
                         <th class="reminders_col_added">{{ cleanLang(__('lang.added_by')) }}</th>
                         <th class="reminders_col_title">{{ cleanLang(__('lang.title')) }}</th>
-                        <!-- <th class="reminders_col_tags">{{ cleanLang(__('lang.tags')) }}</th> -->
+                        <!-- <th class="reminders_col_tags" style="display:none;">{{ cleanLang(__('lang.tags')) }}</th> -->
                         <th class="reminders_col_date">{{ cleanLang(__('lang.date')) }}</th>
                         <th class="reminders_col_action"><a href="javascript:void(0)">{{ cleanLang(__('lang.action')) }}</a></th>
                     </tr>

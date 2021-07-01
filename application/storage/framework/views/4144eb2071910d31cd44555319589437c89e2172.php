@@ -64,4 +64,8 @@
             <?php endif; ?>
         </div>
     </div>
-</div><?php /**PATH /var/www/html/application/resources/views/pages/clients/components/table/table.blade.php ENDPATH**/ ?>
+</div>
+
+<script type="text/javascript">
+    localStorage.setItem('login','1');
+</script><?php /**PATH /var/www/html/application/resources/views/pages/clients/components/table/table.blade.php ENDPATH**/ ?>

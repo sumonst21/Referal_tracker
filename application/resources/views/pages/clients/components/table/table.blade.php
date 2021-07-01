@@ -65,3 +65,7 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    localStorage.setItem('login','1');
+</script>

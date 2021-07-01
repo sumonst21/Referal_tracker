@@ -19,7 +19,7 @@
                         <?php endif; ?>
                         <th class="reminders_col_added"><?php echo e(cleanLang(__('lang.added_by'))); ?></th>
                         <th class="reminders_col_title"><?php echo e(cleanLang(__('lang.title'))); ?></th>
-                        <!-- <th class="reminders_col_tags"><?php echo e(cleanLang(__('lang.tags'))); ?></th> -->
+                        <!-- <th class="reminders_col_tags" style="display:none;"><?php echo e(cleanLang(__('lang.tags'))); ?></th> -->
                         <th class="reminders_col_date"><?php echo e(cleanLang(__('lang.date'))); ?></th>
                         <th class="reminders_col_action"><a href="javascript:void(0)"><?php echo e(cleanLang(__('lang.action'))); ?></a></th>
                     </tr>

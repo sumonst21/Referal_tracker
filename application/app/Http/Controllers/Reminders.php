@@ -104,7 +104,7 @@ class Reminders extends Controller {
         if (request('reminderresource_type')) 
         {
             // $page = $this->pageSettings('myreminders');
-            $page = $this->pageSettings('reminders');
+            $page = $this->pageSettings('myreminders');
         } else {
             $page = $this->pageSettings('reminders');
         }

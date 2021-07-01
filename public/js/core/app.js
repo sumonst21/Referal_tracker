@@ -1850,6 +1850,25 @@ function NXGoalsCreate() {
     });
 }
 
+function NXRemindersCreate() {
+
+    nxTinyMCEBasic();
+
+    $("#commonModalForm").validate().destroy();
+    $("#commonModalForm").validate({
+        rules: {
+            reminder_title: "required",
+            reminder_description: "required",
+            reminder_date: "required"
+        },
+        submitHandler: function (form) {
+
+            //ajax form, so initiate ajax request here
+            nxAjaxUxRequest($("#commonModalSubmitButton"));
+        }
+    });
+}
+
 
 /**--------------------------------------------------------------------------------------
  * [LEFT MENU - CLIENTS] 

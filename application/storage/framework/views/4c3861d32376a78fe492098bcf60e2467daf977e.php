@@ -4,12 +4,30 @@
     <?php if(isset($client['client_logo_folder']) && $client['client_logo_folder'] != ''): ?>
     <div class="card-body profile_header">
         <img src="<?php echo e(url('/')); ?>/storage/logos/clients/<?php echo e($client['client_logo_folder'] ?? '0'); ?>/<?php echo e($client['client_logo_filename'] ?? ''); ?>">
+     <button type="button" title="<?php echo e(cleanLang(__('lang.edit'))); ?>"
+            class="data-toggle-action-tooltip btn btn-outline-success btn-circle btn-sm edit-add-modal-button js-ajax-ux-request reset-target-modal-form"
+            data-toggle="modal" data-target="#commonModal"
+            data-url="<?php echo e(urlResource('/contacts/'.$owner->id.'/edit')); ?>" data-loading-target="commonModalBody"
+            data-modal-title="<?php echo e(cleanLang(__('lang.edit_user'))); ?>"
+            data-action-url="<?php echo e(urlResource('/contacts/'.$owner->id.'?ref=list')); ?>" data-action-method="PUT"
+            data-action-ajax-class="" data-action-ajax-loading-target="contacts-td-container" style="float: right;width: 36px;height: 36px;">
+            <i class="sl-icon-note" style="font-size: 18px;"></i>
+  </button>   
     </div>
     <?php else: ?>
     <!--no logo -->
     <div class="card-body profile_header client logo-text">
         <?php echo e($client->client_company_name); ?>
 
+    <button type="button" title="<?php echo e(cleanLang(__('lang.edit'))); ?>"
+            class="data-toggle-action-tooltip btn btn-outline-success btn-circle btn-sm edit-add-modal-button js-ajax-ux-request reset-target-modal-form"
+            data-toggle="modal" data-target="#commonModal"
+            data-url="<?php echo e(urlResource('/contacts/'.$owner->id.'/edit')); ?>" data-loading-target="commonModalBody"
+            data-modal-title="<?php echo e(cleanLang(__('lang.edit_user'))); ?>"
+            data-action-url="<?php echo e(urlResource('/contacts/'.$owner->id.'?ref=list')); ?>" data-action-method="PUT"
+            data-action-ajax-class="" data-action-ajax-loading-target="contacts-td-container" style="float: right;width: 36px;height: 36px;">
+            <i class="sl-icon-note" style="font-size: 18px;"></i>
+  </button>
     </div>
     <?php endif; ?>
     <div class="card-body p-t-0 p-b-0">
@@ -17,10 +35,22 @@
         <div>
             <small class="text-muted"><?php echo e(cleanLang(__('lang.client_name'))); ?></small>
             <h6><?php echo e($client->client_company_name); ?></h6>
-            <small class="text-muted"><?php echo e(cleanLang(__('lang.telephone'))); ?></small>
-            <h6><?php echo e($client->client_phone); ?></h6>
+            <!--<small class="text-muted"><?php echo e(cleanLang(__('lang.telephone'))); ?></small>
+            <h6><?php echo e($client->client_phone); ?></h6>-->
             <small class="text-muted"><?php echo e(cleanLang(__('lang.account_owner'))); ?></small>
             <div class="m-b-10"><img src="<?php echo e(getUsersAvatar($owner->avatar_directory, $owner->avatar_filename)); ?>" alt="user" class="img-circle avatar-xsmall"> <?php echo e($owner->first_name); ?> <?php echo e($owner->last_name); ?></div>
+             <?php if($owner->phone): ?>
+            <small class="text-muted"><?php echo e(cleanLang(__('lang.telephone'))); ?></small>
+            <div><?php echo e($owner->phone); ?></div>
+            <?php else: ?>
+            <div></div>
+            <?php endif; ?>
+            <?php if($owner->position): ?>
+            <small class="text-muted"><?php echo e(cleanLang(__('lang.position'))); ?></small>
+            <div><?php echo e($owner->position); ?></div>
+            <?php else: ?>
+            <div></div>
+            <?php endif; ?>
             <small class="text-muted"><?php echo e(cleanLang(__('lang.account_status'))); ?></small>
             <div>
                 <?php if($client->client_status == 'active'): ?>

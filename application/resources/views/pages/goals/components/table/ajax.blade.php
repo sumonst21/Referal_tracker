@@ -63,13 +63,13 @@
                 data-modal-title="{{ cleanLang(__('lang.edit_goal')) }}"
                 data-action-url="{{ urlResource('/goals/'.$goal->goal_id.'?ref=list') }}" data-action-method="PUT"
                 data-action-ajax-class="" data-action-ajax-loading-target="goals-td-container">
-                <i class="sl-icon-goal"></i>
+                <i class="sl-icon-note"></i>
             </button>
             @else
             <span class="btn btn-outline-default btn-circle btn-sm disabled  {{ runtimePlaceholdeActionsButtons() }}"
                 data-toggle="tooltip" title="{{ cleanLang(__('lang.actions_not_available')) }}"><i class="sl-icon-trash"></i></span>
             <span class="btn btn-outline-default btn-circle btn-sm disabled  {{ runtimePlaceholdeActionsButtons() }}"
-                data-toggle="tooltip" title="{{ cleanLang(__('lang.actions_not_available')) }}"><i class="sl-icon-goal"></i></span>
+                data-toggle="tooltip" title="{{ cleanLang(__('lang.actions_not_available')) }}"><i class="sl-icon-note"></i></span>
             @endif
             <a href="javascript:void(0)" title="{{ cleanLang(__('lang.view')) }}"
                 class="data-toggle-action-tooltip btn btn-outline-info btn-circle btn-sm show-modal-button js-ajax-ux-request"

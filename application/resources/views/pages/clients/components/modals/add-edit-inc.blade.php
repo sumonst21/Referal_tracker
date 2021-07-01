@@ -53,6 +53,18 @@
                 <input type="text" class="form-control form-control-sm" id="email" name="email" placeholder="">
             </div>
         </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-lg-3 text-left control-label col-form-label required">{{ cleanLang(__('lang.telephone')) }}</label>
+            <div class="col-sm-12 col-lg-9">
+                <input type="text" class="form-control form-control-sm" id="phone" name="phone">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-lg-3 text-left control-label col-form-label required">{{ cleanLang(__('lang.position')) }}</label>
+            <div class="col-sm-12 col-lg-9">
+                <input type="text" class="form-control form-control-sm" id="position" name="position">
+            </div>
+        </div>
         <div class="line"></div>
         @endif
         <!--contact section-->

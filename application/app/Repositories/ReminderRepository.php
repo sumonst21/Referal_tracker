@@ -12,7 +12,8 @@ namespace App\Repositories;
 use App\Models\Reminder;
 use Illuminate\Http\Request;
 use Log;
-
+use DB;
+use Illuminate\Support\Facades\Mail;
 class ReminderRepository {
 
     /**
@@ -117,6 +118,25 @@ class ReminderRepository {
 
         //save and return id
         if ($reminder->save()) {
+        //email
+        $client = DB::table('users')->where('clientid',$reminder->reminderresource_id)->first();
+
+            $email_to = $client->email;
+            $name_to  = $client->first_name;
+            $email_data = array('username' => $name_to);
+            print_r($email_to);
+                Mail::send('pages.reminder', $email_data, function($message) 
+                    use ($name_to, $email_to){
+                    $message->to($email_to, $name_to)->subject
+                    ('Reminder');
+                    $message->from('51userdemo@gmail.com','mail');
+              });
+            // $to = "sukhwinderindiit@gmail.com";
+            // $subject = "My subject";
+            // $txt = "Hello world!";
+            // $headers = "From: webmaster@example.com" . "\r\n" .
+            // mail($to,$subject,$txt,$headers);
+
             return $reminder->reminder_id;
         } else {
             Log::error("record could not be saved - database error", ['process' => '[ReminderRepository]', config('app.debug_ref'), 'function' => __function__, 'file' => basename(__FILE__), 'line' => __line__, 'path' => __file__]);

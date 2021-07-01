@@ -303,6 +303,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right animated bounceInDown language">
                         <div class="row">
+                            
                             @foreach(request('system_languages') as $key => $language)
                             
                             <div class="col-6">

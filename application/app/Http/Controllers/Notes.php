@@ -214,7 +214,7 @@ class Notes extends Controller {
             'notes' => $notes,
             'count' => $count,
         ];
-
+        
         //process reponse
         return new StoreResponse($payload);
 
